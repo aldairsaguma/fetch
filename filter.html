@@ -1,0 +1,35 @@
+<script>
+//Promesas
+console.time();
+fetch('https://pokeapi.co/api/v2/pokemon/')
+    .then( res  => res.json() )
+    .then( data => {
+    	data.results.map(res => {
+    		//console.log(res)
+    	})
+    }).
+    catch( console.log)
+console.timeEnd();
+
+
+//Async and Await
+console.time();
+const getPokemon = async () => {
+	try {
+		const res = await fetch('https://pokeapi.co/api/v2/pokemon/');
+		const data = await res.json();
+
+		const arrayName = data.results.map( res => res.name);
+		//Filter después de usar un Array
+		//const arrayName = data.results.filter( res => res.name !== "bulbasaur");
+		console.log(arrayName.filter( res => res === "bulbasaur" ));
+		//console.log(arrayName.filter( res => console.log(res));
+		data.results.map( res => {
+			//console.log(res);
+		});
+	}catch(err){ console.log}
+}
+getPokemon();
+console.timeEnd();
+</script>
+</script>
